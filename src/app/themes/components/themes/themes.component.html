@@ -1,0 +1,11 @@
+<button mat-button [matMenuTriggerFor]="menu" class="toolbar__btn">
+  <mat-icon>format_color_fill</mat-icon>
+</button>
+<mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <button 
+      mat-menu-item 
+      *ngFor="let theme of themes()" 
+      (click)="changeTheme(theme)">
+      {{theme}}
+    </button>
+</mat-menu>

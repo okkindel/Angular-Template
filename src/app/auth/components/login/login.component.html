@@ -1,0 +1,29 @@
+<form id="login-form" (ngSubmit)="login.emit(credentials)" ngNativeValidate>
+
+  <mat-form-field class="full-width">
+    <input 
+    matInput
+    autofocus 
+    required 
+    placeholder="Email" 
+    [(ngModel)]="credentials.email" 
+    name="email">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input 
+    matInput
+    required 
+    [type]="hide ? 'text' : 'password'"
+    placeholder="Password" 
+    [(ngModel)]="credentials.password" 
+    name="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+    <button mat-raised-button color="primary" class="big" type="submit" [disabled]="disabled">
+    Login
+    <mat-progress-bar *ngIf="disabled" mode="indeterminate"></mat-progress-bar>
+  </button>
+  <button [routerLink]="['/reset-pass']"  mat-raised-button color="primary" class="small" routerLinkActive="active" >Reset Password</button>
+</form>

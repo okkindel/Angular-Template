@@ -1,0 +1,10 @@
+<div class="container" appAddTheme>
+
+  <mat-card class="form">
+    <app-register 
+      (register)="register($event)"
+      [disabled]="isPending$ | async">
+    </app-register>
+  </mat-card>
+
+</div>

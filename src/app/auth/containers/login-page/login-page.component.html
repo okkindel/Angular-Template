@@ -1,0 +1,10 @@
+<div class="container" appAddTheme>
+
+  <mat-card class="form">
+    <app-login 
+      (login)="login($event)" 
+      [disabled]="isPending$ | async">
+    </app-login>
+  </mat-card>
+
+</div>

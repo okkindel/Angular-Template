@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+@import './app/themes/styles/theming.scss';
+@include mat-core();
+
+// Global styles:
+.light-theme {
+    $primary: mat-palette($mat-blue);
+    $accent: mat-palette($mat-blue, A400, A100, A700);
+    $warn: mat-palette($mat-red);
+    $background: mat-palette($mat-grey, 900);
+    $foreground: mat-palette($mat-grey, 50);
+    $theme: mat-light-theme($primary, $accent, $warn);
+    @include light-theme-grabber($theme, $background, $foreground);
+}
+.dark-theme {
+    $primary: mat-palette($mat-grey);
+    $accent: mat-palette($mat-grey, A400, A100, A700);
+    $warn: mat-palette($mat-red);
+    $background: mat-palette($mat-grey, 900);
+    $foreground: mat-palette($mat-grey, 50);
+    $theme: mat-dark-theme($primary, $accent, $warn);
+    @include dark-theme-grabber($theme, $background, $foreground);
+}
+
+* {
+    font-family: Helvetica, Arial, Sans-Serif;
+    padding: 0;
+    margin: 0;
+}

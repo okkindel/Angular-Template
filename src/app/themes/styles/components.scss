@@ -1,0 +1,54 @@
+@mixin dark-components($primary, $accent, $background, $default) {
+  @include common-for-themes($primary, $accent, $background, $default);
+
+  .default-body-color {
+    background-color: mat-color($background, 800) !important;
+  }
+
+  // autocomplete background
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px mat-color($background, 800) inset;
+    -webkit-text-fill-color: #ccc;
+  }
+}
+
+@mixin light-components($primary, $accent, $background, $default) {
+  @include common-for-themes($primary, $accent, $background, $default);
+
+  .default-body-color {
+    background-color: white !important;
+  }
+
+  // autocomplete background
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: black;
+  }
+}
+
+@mixin common-for-themes($primary, $accent, $background, $default) {
+
+  a {
+    text-decoration: none;
+    color: mat-color($primary, 500);
+  }
+
+  // scrollbars
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: mat-color($background, 500);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: mat-color($accent);
+  }
+
+  .toolbar__btn {
+    height: 100%;
+    border-radius: 0;
+  }
+}

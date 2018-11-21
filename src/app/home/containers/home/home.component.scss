@@ -1,0 +1,27 @@
+.container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.card {
+    // TODO:
+    top: 15%;
+    padding: 30px 20%;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 0;
+    color: white;
+    margin-bottom: 1em;
+}
+
+img {
+    height: 15em;
+}
+
+button {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    padding: 1em;
+    border-radius: 60px;
+}
