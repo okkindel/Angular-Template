@@ -1,19 +1,25 @@
-# base image
-FROM node:9.6.1-slim
+FROM node:8.12-alpine as builder
 
-# set working directory
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
+COPY package.json package-lock.json ./
 
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+RUN npm set progress=true && npm config set depth 0 && npm cache clean --force
 
-# install and cache app dependencies
-COPY package.json /usr/src/app/package.json
-RUN npm install
+RUN npm i && mkdir / frontend && mv ./node_modules ./frontend
 
-# add app
-COPY . /usr/src/app
+WORKDIR /frontend
 
-# start app
-CMD ng serve --host 0.0.0.0
+COPY . .
+
+# CMD npm start
+
+RUN npm run build --prod
+
+FROM nginx:1.15-alpine
+
+RUN rm -rf /usr/share/nginx/html/*
+
+# COPY nginx.conf /etc/nginx/conf.d/
+
+COPY --from=builder /frontend/dist /usr/share/nginx/html
+
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,15 +1,8 @@
-version: '3.5'
+version: '3'
 
 services:
-
-  frontend:
-    container_name: frontend
+  angular:
     build:
       context: .
-      dockerfile: Dockerfile
-    volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
     ports:
-      - '4200:4200'
-
+      - "4200:80"
