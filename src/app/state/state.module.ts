@@ -18,7 +18,7 @@ import { reducers } from './app/app.reducer';
     EffectsModule.forRoot([
       AppEffects
     ]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    // !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
     {

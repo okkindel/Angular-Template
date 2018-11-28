@@ -17,8 +17,8 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/login`;
-    const body = { 'email': email, 'password': password };
+    const url = `${this.BASE_URL}/api/users`;
+    const body = { 'username': email, 'password': password };
     return this.http.post<IUser>(url, body);
   }
 }
