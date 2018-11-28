@@ -1,7 +1,6 @@
 module.exports = {
     preset: 'jest-preset-angular',
     modulePaths: ['<rootDir>/dist'],
-    setupFiles: ["jest-canvas-mock"],
     moduleNameMapper: {
   
       "@core/*": ["src/app/core/*"],
