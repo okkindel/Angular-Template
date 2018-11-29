@@ -1,12 +1,12 @@
 import * as AuthActions from '../../../state/auth/actions/';
-import { SnackbarService, PasswordService } from '../../../shared/services';
+import { SnackbarService } from '../../../shared/services';
 import * as fromAuth from '../../../state/auth/reducers/';
 import { Component } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Store, select, compose } from '@ngrx/store';
 import { ICredentials } from '../../models';
-import { isNil, not, compose } from 'ramda';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { isNullOrUndefined, isUndefined } from 'util';
 
 @Component({
   selector: 'app-login-page',
@@ -23,7 +23,7 @@ export class LoginPageComponent {
     private snackBar: SnackbarService) {
     this.errorMessage$ = store.pipe(
       select(fromAuth.getError),
-      filter(compose(not, isNil))
+      filter(err => err !== undefined)
     );
     this.isPending$ = store.pipe(select(fromAuth.getIsPending));
   }
