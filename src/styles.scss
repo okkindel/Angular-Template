@@ -2,7 +2,6 @@
 @import './app/themes/styles/theming.scss';
 @include mat-core();
 
-// Global styles:
 .light-theme {
     $primary: mat-palette($mat-blue);
     $accent: mat-palette($mat-blue, A400, A100, A700);
@@ -12,6 +11,7 @@
     $theme: mat-light-theme($primary, $accent, $warn);
     @include light-theme-grabber($theme, $background, $foreground);
 }
+
 .dark-theme {
     $primary: mat-palette($mat-grey);
     $accent: mat-palette($mat-grey, A400, A100, A700);

@@ -10,8 +10,6 @@ WORKDIR /frontend
 
 COPY . .
 
-# CMD npm start
-
 RUN npm run build --prod
 
 FROM nginx:1.15-alpine

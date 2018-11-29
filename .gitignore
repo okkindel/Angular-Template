@@ -1,7 +1,3 @@
-
-# Created by https://www.gitignore.io/api/angular,code,node,visualstudio,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=angular,code,node,visualstudio,visualstudiocode
-
 ### Angular ###
 ## Angular ##
 # compiled output
@@ -34,7 +30,6 @@ testem.log
 .DS_Store
 
 ### Code ###
-# Visual Studio Code - https://code.visualstudio.com/
 .settings/
 .vscode/
 tsconfig.json
@@ -47,5 +42,5 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
 package-lock.json
+yarn-lock.json

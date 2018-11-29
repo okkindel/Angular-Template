@@ -1,8 +1,8 @@
 
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeModule, HomeComponent } from './home';
 import { AuthGuard } from './auth';
+import { NgModule } from '@angular/core';
+import { HomeModule, HomeComponent } from './home';
+import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
 import { InfoComponent, BadRequestComponent, PasswordResetComponent } from './shared/containers';
 
