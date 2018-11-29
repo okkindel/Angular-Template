@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Build docker-compose
 
-Run `docker-compose up`. Dependencies will be installed automatically.
+Run `docker-compose up`. Dependencies will be installed automatically. Navigate to `http://localhost:4200/`.
 
 ## Development server
 
@@ -21,7 +21,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/).
+Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io/).
 
 ## Running end-to-end tests
 

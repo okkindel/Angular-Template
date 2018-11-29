@@ -6,8 +6,8 @@ module.exports = {
     "@core/*": ["src/app/core/*"],
     "@state/*": ["src/app/state/*"],
   },
-  roots: ['<rootDir>/src', '<rootDir>/projects'],
-  setupTestFrameworkScriptFile: '<rootDir>/setup-jest.ts',
+  roots: ['<rootDir>/src'],
+  setupTestFrameworkScriptFile: '<rootDir>/jest-setup.ts',
   testMatch: [
     "**/+(*.)+(spec|test).+(ts)?(x)"
   ],
