@@ -2,11 +2,10 @@ import * as AuthActions from '../../../state/auth/actions/';
 import { SnackbarService } from '../../../shared/services';
 import * as fromAuth from '../../../state/auth/reducers/';
 import { Component } from '@angular/core';
-import { Store, select, compose } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { ICredentials } from '../../models';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { isNullOrUndefined, isUndefined } from 'util';
 
 @Component({
   selector: 'app-login-page',

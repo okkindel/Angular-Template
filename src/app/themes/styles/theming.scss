@@ -51,7 +51,7 @@
       status-bar:             map_get($color, 300),
       app-bar:                map_get($color, 100),
       background:             map_get($color, 50),
-      hover:                  rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+      hover:                  rgba(black, 0.04),
       card:                   white,
       dialog:                 white,
       disabled-button:        rgba(black, 0.12),

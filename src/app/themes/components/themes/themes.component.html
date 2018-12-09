@@ -1,5 +1,8 @@
-<button mat-button [matMenuTriggerFor]="menu" class="toolbar__btn">
+<button mat-button [matMenuTriggerFor]="menu" class="toolbar__btn desktop">
   <mat-icon>format_color_fill</mat-icon>
+</button>
+<button mat-menu-item [matMenuTriggerFor]="menu" class="mobile">
+  Choose Theme
 </button>
 <mat-menu #menu="matMenu" [overlapTrigger]="false">
     <button 

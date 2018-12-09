@@ -6,6 +6,8 @@
     margin-bottom: 1em;
 }
 
-img {
-    height: 15em;
+@media screen and (max-width: 768px){
+    .card{
+        padding: 30px 10%;
+    }
 }

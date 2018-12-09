@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material';
 import { NgModule } from '@angular/core';
 import { ThemesModule } from '../themes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    ThemesModule
+    ThemesModule,
+    RouterModule
   ],
   declarations: [
     ToolbarComponent,

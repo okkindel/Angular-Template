@@ -4,3 +4,12 @@
     width: 30%;
     padding: 30px;
 }
+
+@media screen and (max-width: 768px){
+    .info {
+        margin-left: calc(20% - 30px);
+        top: 20%;
+        width: 60%;
+        padding: 30px;
+    }
+}
