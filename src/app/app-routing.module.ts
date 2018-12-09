@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HomeModule, HomeComponent } from './home';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
-import { InfoComponent, BadRequestComponent } from './shared/containers';
+import { InfoComponent, BadRequestComponent } from './shared/components';
 
 export const routes: Routes = [
   {
@@ -27,6 +27,7 @@ export const routes: Routes = [
   {
     path: 'info',
     component: InfoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '404',
