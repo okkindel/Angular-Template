@@ -8,14 +8,11 @@ import { AppComponent } from './app.component';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { ThemesModule } from './themes';
 import { FormsModule } from '@angular/forms';
-import { BadRequestComponent, InfoComponent, PasswordResetComponent } from './shared/containers';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfoComponent,
-    BadRequestComponent,
-    PasswordResetComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,11 +23,8 @@ import { BadRequestComponent, InfoComponent, PasswordResetComponent } from './sh
     ToolbarModule,
     ThemesModule,
     FormsModule,
+    SharedModule
   ],
   bootstrap: [AppComponent],
-  exports: [
-    InfoComponent,
-    BadRequestComponent
-  ]
 })
 export class AppModule { }

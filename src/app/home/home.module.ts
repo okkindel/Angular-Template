@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent } from './containers';
 import { ThemesModule } from '../themes';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ThemesModule } from '../themes';
     BrowserModule,
     FormsModule,
     MaterialModule,
-    ThemesModule
+    ThemesModule,
+    SharedModule
   ],
   declarations: [
     HomeComponent,

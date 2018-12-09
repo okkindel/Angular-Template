@@ -1,5 +1,7 @@
 @import '~@angular/material/theming';
 @import './components';
+@import './grid';
+@include grid();
 
 @mixin dark-theme-grabber($theme, $background, $foreground) {
   $primary: map-get($theme, primary);

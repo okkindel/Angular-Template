@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { HomeModule, HomeComponent } from './home';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
-import { InfoComponent, BadRequestComponent, PasswordResetComponent } from './shared/containers';
+import { InfoComponent, BadRequestComponent } from './shared/containers';
 
 export const routes: Routes = [
   {
@@ -27,11 +27,6 @@ export const routes: Routes = [
   {
     path: 'info',
     component: InfoComponent,
-  },
-  {
-    path: 'reset-pass',
-    component: PasswordResetComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: '404',
