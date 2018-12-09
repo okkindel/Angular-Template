@@ -2,11 +2,15 @@
 
   <button mat-button (click)="navigateToHome()" class="toolbar__main">
     <img src='../../../../assets/icons/icon_white.svg' />
-    <span>Hackathon</span>
+    <span>Template</span>
   </button>
 
   <span class="spacer"></span>
 
   <app-menu class="menu"></app-menu>
+
+  <button mat-button class="toolbar__hamburger" (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
 
 </mat-toolbar>

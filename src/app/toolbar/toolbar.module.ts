@@ -1,5 +1,5 @@
 import { UserSettingsComponent, NoUserComponent } from './components';
-import { ToolbarComponent, MenuComponent } from './containers';
+import { ToolbarComponent, MenuComponent, SidebarComponent } from './containers';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material';
 import { NgModule } from '@angular/core';
@@ -16,9 +16,11 @@ import { ThemesModule } from '../themes';
     UserSettingsComponent,
     NoUserComponent,
     MenuComponent,
+    SidebarComponent,
   ],
   exports: [
     ToolbarComponent,
+    SidebarComponent
   ]
 })
 export class ToolbarModule { }
