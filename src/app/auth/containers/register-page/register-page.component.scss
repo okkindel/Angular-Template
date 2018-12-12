@@ -1,15 +1,29 @@
 .form {
-    margin-left: calc(35% - 30px);
-    top: 25%;
     width: 30%;
+    padding: 0;
+    border-radius: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content {
     padding: 30px;
 }
 
-@media screen and (max-width: 768px){
-    .form{
-        margin-left: calc(20% - 30px);
-        top: 20%;
+.header {
+    background-color: gray;
+    color: white;
+    padding: 0;
+    border-radius: 0;
+    height: 4em;
+    padding-left: 20px;
+}
+
+@media screen and (max-width: 770px) {
+    .form {
         width: 60%;
-        padding: 30px;
+        padding: 0;
     }
 }

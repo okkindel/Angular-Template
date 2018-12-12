@@ -1,10 +1,17 @@
 <div class="container" appAddTheme>
 
   <mat-card class="form">
-    <app-register 
-      (register)="register($event)"
-      [disabled]="isPending$ | async">
-    </app-register>
+    <mat-card class="header">
+      <p style="line-height: 80px;">
+        Please register!
+      </p>
+    </mat-card>
+    <div class="content">
+      <app-register 
+        (register)="register($event)" 
+        [disabled]="isPending$ | async">
+      </app-register>
+    </div>
   </mat-card>
 
 </div>

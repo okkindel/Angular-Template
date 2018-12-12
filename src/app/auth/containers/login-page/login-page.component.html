@@ -1,10 +1,17 @@
 <div class="container" appAddTheme>
 
   <mat-card class="form">
-    <app-login 
-      (login)="login($event)" 
-      [disabled]="isPending$ | async">
-    </app-login>
+    <mat-card class="header">
+      <p style="line-height: 80px;">
+        Welcome back!
+      </p>
+    </mat-card>
+    <div class="content">
+      <app-login 
+        (login)="login($event)" 
+        [disabled]="isPending$ | async">
+      </app-login>
+    </div>
   </mat-card>
 
 </div>
