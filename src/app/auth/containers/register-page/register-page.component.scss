@@ -2,10 +2,6 @@
     width: 30%;
     padding: 0;
     border-radius: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .content {
@@ -13,17 +9,16 @@
 }
 
 .header {
-    background-color: gray;
-    color: white;
     padding: 0;
+    height: 3em;
+    color: white;
     border-radius: 0;
-    height: 4em;
     padding-left: 20px;
+    background-color: gray;
 }
 
 @media screen and (max-width: 770px) {
     .form {
-        width: 60%;
-        padding: 0;
+        width: 80%;
     }
 }

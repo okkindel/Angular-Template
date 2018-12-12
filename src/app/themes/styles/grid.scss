@@ -1,4 +1,5 @@
 @mixin grid() {
+    
     .row {
         margin-bottom: 0.5em;
     }
@@ -7,13 +8,14 @@
         clear: both;
         display: table;
     }
+
     [class*=col-] {
-        border-radius: 3px;
         float: left;
         width: 100%;
         padding: 0;
         margin-top: 0.5em;
     }
+
     @media screen and (min-width: 640px) {
         .col-1-6 {
             width: 15.8333%;

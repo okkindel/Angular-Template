@@ -1,5 +1,7 @@
 @import '~@angular/material/theming';
 @import './components';
+@import './settings';
+@include settings();
 @import './grid';
 @include grid();
 

@@ -1,0 +1,21 @@
+@mixin settings() {
+    
+    * {
+        font-family: Helvetica, Arial, Sans-Serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .centered {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

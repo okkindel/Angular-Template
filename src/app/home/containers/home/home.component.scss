@@ -1,13 +1,16 @@
-.card {
-    padding: 30px 20%;
-    background-color: rgb(190, 190, 190);
-    border-radius: 0;
-    color: white;
-    margin-bottom: 1em;
+.conent {
+    width: 90%;
 }
 
-@media screen and (max-width: 768px){
-    .card{
-        padding: 30px 10%;
-    }
+.logo-card {
+    background-color: rgb(190, 190, 190);
+    padding: 3em;
+}
+
+.text {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .card {}
 }

@@ -28,12 +28,6 @@
 
 @mixin common-for-themes($primary, $accent, $background, $default) {
 
-  .container {
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-  }
-
   a {
     text-decoration: none;
     color: mat-color($primary, 500);

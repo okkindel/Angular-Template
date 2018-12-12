@@ -21,9 +21,3 @@
     $theme: mat-dark-theme($primary, $accent, $warn);
     @include dark-theme-grabber($theme, $background, $foreground);
 }
-
-* {
-    font-family: Helvetica, Arial, Sans-Serif;
-    padding: 0;
-    margin: 0;
-}

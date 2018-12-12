@@ -1,11 +1,19 @@
 <div class="container" appAddTheme>
-    <mat-card align="center" class="card">
-        <app-logo [color]="'light'"></app-logo>
-        <br><br>
-        <h1>
-            <p>
-                Hajduk Angular Template
-            </p>
-        </h1>
-    </mat-card>
+    <div class="centered conent">
+        <div class="row">
+            <div class="col-6-6" align="center">
+                <mat-card class="logo-card">
+                    <app-logo [color]="'light'"></app-logo>
+                </mat-card>
+            </div>
+        </div>
+        <div class="row text">
+            <mat-card class="col-3-6">
+                Hajduk Awesome
+            </mat-card>
+            <mat-card class="col-3-6">
+                Angular Template
+            </mat-card>
+        </div>
+    </div>
 </div>
