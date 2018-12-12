@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Hackathon-Template": {
+    "Angular-Template": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Hackathon-Template:build"
+            "browserTarget": "Angular-Template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Hackathon-Template:build:production"
+              "browserTarget": "Angular-Template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Hackathon-Template:build"
+            "browserTarget": "Angular-Template:build"
           }
         },
         "lint": {
@@ -82,7 +82,7 @@
         }
       }
     },
-    "Hackathon-Template-e2e": {
+    "Angular-Template-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -90,11 +90,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Hackathon-Template:serve"
+            "devServerTarget": "Angular-Template:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Hackathon-Template:serve:production"
+              "devServerTarget": "Angular-Template:serve:production"
             }
           }
         },
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "Hackathon-Template"
+  "defaultProject": "Angular-Template"
 }
