@@ -14,7 +14,7 @@ export class NotificationsEffects {
   @Effect({ dispatch: false })
   showNotification$ = this.actions$.pipe(
     ofType<HttpErrorAction>(ErrorActionTypes.HANDLE_HTTP),
-    map(action => action.payload.translationKey),
+    map(action => action.payload.userInfo),
     tap(this.service.showMessage)
   );
 }

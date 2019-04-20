@@ -2,11 +2,11 @@ import { SnackbarService } from './snakbar.service';
 import { HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import * as fromErrorState from '../store/reducers';
 import { HttpErrorAction } from '../store/actions';
-import { MatSnackBar } from '@angular/material';
 import { Observable, throwError } from 'rxjs';
 import { switchcase } from '../utils/utils';
 import { Injectable } from '@angular/core';
 import { IErrorResponse } from '../models';
+import autobind from 'autobind-decorator';
 import { Store } from '@ngrx/store';
 
 @Injectable({
@@ -28,15 +28,17 @@ export class ErrorHandlingService {
     }
   }
 
-  mapErrors = (error): IErrorResponse => ({
-    name: error.name,
-    status: error.status,
-    message: error.message,
-    translationKey: this.mapErrorMessage(error.status)
-  });
+  mapErrors(error): IErrorResponse {
+    return {
+      name: error.name,
+      status: error.status,
+      message: error.message,
+      userInfo: this.mapErrorMessage(error.status)
+    };
+  }
 
-  mapErrorMessage = message =>
-    switchcase({
+  mapErrorMessage(message): string {
+    return switchcase({
       400: 'ERROR.ERR_400',
       401: 'ERROR.ERR_401',
       403: 'ERROR.ERR_403',
@@ -45,9 +47,10 @@ export class ErrorHandlingService {
       500: 'ERROR.ERR_500',
       502: 'ERROR.ERR_502'
     })('ERROR.ERR_DEFAULT')(message);
+  }
 
+  @autobind
   showMessage(message) {
-    // this.snackBar.open(message, null, { duration: 4000 });
     this.snackBar.showMessage(message);
   }
 }
