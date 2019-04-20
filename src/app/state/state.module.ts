@@ -18,11 +18,11 @@ import {
 
 @NgModule({
   imports: [
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
-    StoreModule.forRoot(reducers),
+    CommonModule,
     EffectsModule.forRoot([]),
-    CommonModule
+    StoreModule.forRoot(reducers),
+    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
     {
