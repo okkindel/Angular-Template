@@ -8,11 +8,7 @@ import { SidebarService } from '../../services';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-
-  constructor(
-    private router: Router,
-    private sidebar: SidebarService) {
-  }
+  constructor(private router: Router, private sidebar: SidebarService) {}
 
   navigateToHome() {
     this.router.navigate(['home']);

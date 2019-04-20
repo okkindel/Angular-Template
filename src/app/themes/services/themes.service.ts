@@ -1,9 +1,9 @@
+import * as ThemesActions from '../../themes/store/actions';
+import * as fromThemes from '../../themes/store/reducers';
+import * as fromRoot from '../../state/app.reducer';
+import { Store, select } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
-import * as fromRoot from '../../state/app/app.reducer';
-import * as fromThemes from '../../state/themes/reducers';
-import * as ThemesActions from '../../state/themes/actions/themes.actions';
 
 @Injectable({
   providedIn: 'root'

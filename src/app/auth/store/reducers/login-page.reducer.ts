@@ -1,4 +1,4 @@
-import { AuthActionsUnion, AuthActionTypes } from '../../actions/';
+import { AuthActionsUnion, AuthActionTypes } from '../actions/';
 
 export interface IState {
   error: string;
@@ -10,7 +10,10 @@ export const initialState: IState = {
   isPending: false
 };
 
-export function reducer(state = initialState, action: AuthActionsUnion): IState {
+export function reducer(
+  state = initialState,
+  action: AuthActionsUnion
+): IState {
   switch (action.type) {
     case AuthActionTypes.Login: {
       return {

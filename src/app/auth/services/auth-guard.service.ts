@@ -1,5 +1,5 @@
-import * as AuthActions from '../../state/auth/actions/';
-import * as fromAuth from '../../state/auth/reducers/';
+import * as AuthActions from '../store/actions/';
+import * as fromAuth from '../store/reducers/';
 import { CanActivate } from '@angular/router';
 import { map, first } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';

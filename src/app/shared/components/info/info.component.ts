@@ -1,9 +1,8 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { InfoService } from '../../services/info.service';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -11,29 +10,28 @@ import { delay } from 'rxjs/operators';
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements AfterViewInit, OnInit {
-
   message: String;
 
-  constructor(
-    private router: Router,
-    private service: InfoService) { }
+  constructor(private router: Router, private service: InfoService) {}
 
   ngOnInit(): void {
     this.message = this.service.message;
   }
 
   observe(): Observable<any> {
-    return Observable.create(observer => {
+    return new Observable(observer => {
       observer.next(true);
     });
   }
 
   redirect() {
-    this.observe().pipe(delay(3000)).subscribe(() => {
-      if (this.router.url === '/info') {
-        this.router.navigate(['home']);
-      }
-    });
+    this.observe()
+      .pipe(delay(3000))
+      .subscribe(() => {
+        if (this.router.url === '/info') {
+          this.router.navigate(['home']);
+        }
+      });
   }
 
   ngAfterViewInit() {

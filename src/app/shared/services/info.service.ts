@@ -5,13 +5,12 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class InfoService {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   message: String = '';
 
-  showInfo(msg: String) {
-    this.message = msg;
+  showInfo(message: String) {
+    this.message = message;
     this.router.navigate(['info']);
   }
 }

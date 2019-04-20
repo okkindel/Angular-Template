@@ -1,30 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ToolbarModule } from './toolbar/toolbar.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 import { StateModule } from './state/state.module';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material';
 import { NgModule } from '@angular/core';
-import { AuthModule } from './auth';
-import { AppComponent } from './app.component';
-import { ToolbarModule } from './toolbar/toolbar.module';
 import { ThemesModule } from './themes';
-import { FormsModule } from '@angular/forms';
-import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    MaterialModule,
     AppRoutingModule,
-    AuthModule,
-    StateModule,
+    MaterialModule,
     ToolbarModule,
+    BrowserModule,
+    SharedModule,
     ThemesModule,
+    StateModule,
     FormsModule,
-    SharedModule
+    AuthModule
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

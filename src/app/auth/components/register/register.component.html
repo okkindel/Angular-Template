@@ -1,43 +1,60 @@
-<form id="register-form" (ngSubmit)="validate() && register.emit(credentials)" ngNativeValidate>
-
+<form
+  (ngSubmit)="validate() && register.emit(credentials)"
+  id="register-form"
+  ngNativeValidate
+>
   <mat-form-field class="full-width">
-    <input 
-    matInput
-    placeholder="Email" 
-    [(ngModel)]="credentials.email"
-    [email]="true"
-    type="email"
-    name="email"
-    required>
+    <input
+      [(ngModel)]="credentials.email"
+      placeholder="Email"
+      [email]="true"
+      type="email"
+      name="email"
+      matInput
+      required
+    />
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input 
-    matInput
-    placeholder="Password" 
-    [(ngModel)]="credentials.password" 
-    [type]="hide ? 'text' : 'password'"
-    name="password"
-    minlength="5"
-    required>
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <input
+      [(ngModel)]="credentials.password"
+      [type]="hide ? 'text' : 'password'"
+      placeholder="Password"
+      name="password"
+      minlength="5"
+      matInput
+      required
+    />
+    <mat-icon matSuffix (click)="hide = !hide">{{
+      hide ? 'visibility_off' : 'visibility'
+    }}</mat-icon>
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input 
-    matInput
-    placeholder="Confirm Password" 
-    [(ngModel)]="re_password" 
-    [type]="hide ? 'text' : 'password'"
-    name="re-password"
-    minlength="5"
-    required>
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <input
+      matInput
+      placeholder="Confirm Password"
+      [(ngModel)]="re_password"
+      [type]="hide ? 'text' : 'password'"
+      name="re-password"
+      minlength="5"
+      required
+    />
+    <mat-icon matSuffix (click)="hide = !hide">{{
+      hide ? 'visibility_off' : 'visibility'
+    }}</mat-icon>
   </mat-form-field>
-  
-  <div align="center" *ngIf="!validate_password()"> <small> Passwords do not match.</small> <br><br> </div>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="!validate() || disabled">
+  <div align="center" *ngIf="!validate_password()">
+    <small> Passwords do not match.</small> <br /><br />
+  </div>
+
+  <button
+    [disabled]="!validate() || disabled"
+    mat-raised-button
+    color="primary"
+    type="submit"
+  >
     Register
     <mat-progress-bar *ngIf="disabled" mode="indeterminate"></mat-progress-bar>
   </button>

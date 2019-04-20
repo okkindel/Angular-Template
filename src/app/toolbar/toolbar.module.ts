@@ -1,28 +1,26 @@
 import { UserSettingsComponent, NoUserComponent } from './components';
-import { ToolbarComponent, MenuComponent, SidebarComponent } from './containers';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material';
-import { NgModule } from '@angular/core';
 import { ThemesModule } from '../themes';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import {
+  ToolbarComponent,
+  SidebarComponent,
+  MenuComponent
+} from './containers';
+
+const components = [
+  UserSettingsComponent,
+  SidebarComponent,
+  ToolbarComponent,
+  NoUserComponent,
+  MenuComponent
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MaterialModule,
-    ThemesModule,
-    RouterModule
-  ],
-  declarations: [
-    ToolbarComponent,
-    UserSettingsComponent,
-    NoUserComponent,
-    MenuComponent,
-    SidebarComponent,
-  ],
-  exports: [
-    ToolbarComponent,
-    SidebarComponent
-  ]
+  imports: [CommonModule, MaterialModule, ThemesModule, RouterModule],
+  declarations: [...components],
+  exports: [ToolbarComponent, SidebarComponent]
 })
-export class ToolbarModule { }
+export class ToolbarModule {}

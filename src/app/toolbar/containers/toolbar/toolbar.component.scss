@@ -1,42 +1,42 @@
 * {
-    color: white;
+  color: white;
 }
 
 .spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 img {
-    height: 2em;
-    margin-right: 10px;
+  height: 2em;
+  margin-right: 10px;
 }
 
 .toolbar__main {
-    border-radius: 0;
-    height: 100%;
-    margin-left: -20px;
-    padding-right: 30px;
-    padding-left: 25px;
+  border-radius: 0;
+  height: 100%;
+  margin-left: -20px;
+  padding-right: 30px;
+  padding-left: 25px;
 }
 
 .toolbar__hamburger {
-    border-radius: 0;
-    height: 100%;
-    padding-left: 20px;
-    margin-right: -16px;
-    display: none;
+  border-radius: 0;
+  height: 100%;
+  padding-left: 20px;
+  margin-right: -16px;
+  display: none;
 }
 
 .menu {
-    height: 100%;
-    margin-right: -15px;
+  height: 100%;
+  margin-right: -15px;
 }
 
 @media screen and(max-width: 760px) {
-    .menu {
-        display: none;
-    }
-    .toolbar__hamburger {
-        display: flex;
-    }
+  .menu {
+    display: none;
+  }
+  .toolbar__hamburger {
+    display: flex;
+  }
 }

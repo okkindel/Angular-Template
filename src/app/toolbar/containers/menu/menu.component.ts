@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import * as AuthActions from '../../../state/auth/actions/';
-import * as fromAuth from '../../../state/auth/reducers/';
-import { Router } from '@angular/router';
-import { AppState } from '../../../state/app/app.interface';
-import { Store, select } from '@ngrx/store';
 import { InfoService } from 'src/app/shared/services/info.service';
-
+import * as AuthActions from '../../../auth/store/actions/';
+import * as fromAuth from '../../../auth/store/reducers/';
+import { AppState } from '../../../state/app.interface';
+import { Store, select } from '@ngrx/store';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -14,13 +13,13 @@ import { InfoService } from 'src/app/shared/services/info.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-
   email$: Observable<string>;
 
   constructor(
     private store: Store<AppState>,
     private router: Router,
-    private infoService: InfoService) {
+    private infoService: InfoService
+  ) {
     this.email$ = this.store.pipe(select(fromAuth.getEmail));
   }
 

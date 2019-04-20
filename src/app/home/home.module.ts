@@ -1,25 +1,23 @@
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent } from './containers';
+import { NgModule } from '@angular/core';
 import { ThemesModule } from '../themes';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
+    MaterialModule,
+    BrowserModule,
+    ThemesModule,
     RouterModule,
     CommonModule,
-    BrowserModule,
     FormsModule,
-    MaterialModule,
-    ThemesModule,
     SharedModule
   ],
-  declarations: [
-    HomeComponent,
-  ]
+  declarations: [HomeComponent]
 })
-export class HomeModule { }
+export class HomeModule {}

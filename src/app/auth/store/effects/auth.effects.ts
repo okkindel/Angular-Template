@@ -1,4 +1,3 @@
-import { Login, AuthActionTypes, LoginSuccess, LoginFailure } from '../actions/auth.actions';
 import { AuthService } from '../../../auth/services/auth.service';
 import { map, exhaustMap, catchError, tap } from 'rxjs/operators';
 import { Effect, Actions, ofType } from '@ngrx/effects';
@@ -7,21 +6,28 @@ import { IUser } from '../../../auth/models';
 import { Injectable } from '@angular/core';
 import { of as observableOf } from 'rxjs';
 import { Router } from '@angular/router';
+import {
+  AuthActionTypes,
+  LoginFailure,
+  LoginSuccess,
+  Login
+} from '../actions/auth.actions';
 
 @Injectable()
 export class AuthEffects {
-
   @Effect()
   login$ = this.actions$.pipe(
     ofType<Login>(AuthActionTypes.Login),
-    map((action) => action.payload),
+    map(action => action.payload),
     exhaustMap((credentials: IUser) =>
-      this.authService
-        .login(credentials.email, credentials.password)
-        .pipe(
-          map(auth => auth ? new LoginSuccess({ email: credentials.email, token: auth.token }) : new LoginFailure(false)),
-          catchError(error => observableOf(new LoginFailure(error)))
-        )
+      this.authService.login(credentials.email, credentials.password).pipe(
+        map(auth =>
+          auth
+            ? new LoginSuccess({ email: credentials.email, token: auth.token })
+            : new LoginFailure(false)
+        ),
+        catchError(error => observableOf(new LoginFailure(error)))
+      )
     )
   );
 
@@ -38,13 +44,13 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginRedirect$ = this.actions$.pipe(
     ofType(AuthActionTypes.LoginRedirect),
-    tap(_ => this.router.navigate(['login'])),
+    tap(_ => this.router.navigate(['login']))
   );
 
   @Effect({ dispatch: false })
   logout$ = this.actions$.pipe(
     ofType(AuthActionTypes.Logout),
-    tap(_ => this.router.navigate(['home'])),
+    tap(_ => this.router.navigate(['home']))
   );
 
   constructor(
@@ -52,5 +58,5 @@ export class AuthEffects {
     private authService: AuthService,
     private router: Router,
     private infoService: InfoService
-    ) { }
+  ) {}
 }

@@ -1,12 +1,12 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { ICredentials } from '../../models';
+import { isNil, equals } from 'ramda';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-
   re_password: String = '';
 
   @Input() disabled = false;
@@ -14,13 +14,13 @@ export class RegisterComponent {
 
   public credentials: ICredentials = {
     email: '',
-    password: '',
+    password: ''
   };
 
-  validate_password = () => this.re_password === this.credentials.password;
+  validate_password = () => equals(this.re_password, this.credentials.password);
 
-  validate = () => this.validate_password()
-    && this.credentials.email !== ''
-    && this.credentials.password !== ''
-
+  validate = () =>
+    this.validate_password() &&
+    !isNil(this.credentials.email) &&
+    !isNil(this.credentials.password)
 }

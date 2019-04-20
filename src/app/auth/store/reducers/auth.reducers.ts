@@ -12,7 +12,10 @@ export const initialState: IState = {
   token: undefined
 };
 
-export function reducer(state = initialState, action: AuthActionsUnion): IState {
+export function reducer(
+  state = initialState,
+  action: AuthActionsUnion
+): IState {
   switch (action.type) {
     case AuthActionTypes.LoginSuccess: {
       return {

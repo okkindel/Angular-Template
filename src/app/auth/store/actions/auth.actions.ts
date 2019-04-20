@@ -1,12 +1,12 @@
-import { Action } from '@ngrx/store';
 import { ICredentials, IUser } from '../../../auth/models';
+import { Action } from '@ngrx/store';
 
 export enum AuthActionTypes {
   Login = '[Auth] Login',
   Logout = '[Auth] Logout',
   LoginSuccess = '[Auth] Login Success',
   LoginFailure = '[Auth] Login Failure',
-  LoginRedirect = '[Auth] Login Redirect',
+  LoginRedirect = '[Auth] Login Redirect'
 }
 
 export class Login implements Action {

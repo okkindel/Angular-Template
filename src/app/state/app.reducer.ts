@@ -1,10 +1,11 @@
-import { ActionReducer } from '@ngrx/store';
-import { AppState } from './app/app.interface';
+import { IRouterStateUrl } from '../shared/utils/serializer';
+import * as fromRouter from '@ngrx/router-store';
+import { ActionReducerMap } from '@ngrx/store';
 
-export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
-  return function(state: AppState, action: any): AppState {
-    // console.log('state', state);
-    // console.log('action', action);
-    return reducer(state, action);
-  };
+export interface IState {
+  router: fromRouter.RouterReducerState<IRouterStateUrl>;
 }
+
+export const reducers: ActionReducerMap<IState> = {
+  router: fromRouter.routerReducer
+};

@@ -7,33 +7,26 @@ export function createActionType<T>(label: T | ''): T {
   if (typeCache[<string>label]) {
     throw new Error(`Action type "${label}" is not unique"`);
   }
-
   typeCache[<string>label] = true;
-
   return <T>label;
 }
 
 export interface IRouterStateUrl {
-  url: string;
-  params: Params;
   queryParams: Params;
+  params: Params;
+  url: string;
 }
 
-export class CustomSerializer implements RouterStateSerializer<IRouterStateUrl> {
+export class CustomSerializer
+  implements RouterStateSerializer<IRouterStateUrl> {
   serialize(routerState: RouterStateSnapshot): IRouterStateUrl {
     let route = routerState.root;
     while (route.firstChild) {
       route = route.firstChild;
     }
-
     const { url } = routerState;
     const queryParams = routerState.root.queryParams;
     const params = route.params;
-
-    // Only return an object including the URL, params and query params
-    // instead of the entire snapshot
     return { url, params, queryParams };
   }
 }
-
-// FOR STORE ROUTING

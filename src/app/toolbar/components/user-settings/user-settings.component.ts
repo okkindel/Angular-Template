@@ -6,9 +6,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./user-settings.component.scss']
 })
 export class UserSettingsComponent {
-
   @Input() email: string;
-  @Output() logout = new EventEmitter;
+  @Output() logout = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 }

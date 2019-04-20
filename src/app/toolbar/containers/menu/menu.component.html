@@ -1,13 +1,15 @@
-<app-user-settings 
-*ngIf="email$ | async"
-[email]="email$ | async" 
-(logout)="logout()">
+<app-user-settings
+  *ngIf="(email$ | async)"
+  [email]="email$ | async"
+  (logout)="logout()"
+>
 </app-user-settings>
 
 <app-no-user
   *ngIf="!(email$ | async)"
   (login)="navigateToLogin()"
-  (register)="navigateToRegister()">
+  (register)="navigateToRegister()"
+>
 </app-no-user>
 
 <app-theme-picker></app-theme-picker>

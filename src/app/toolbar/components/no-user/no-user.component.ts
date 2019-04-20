@@ -6,10 +6,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./no-user.component.scss']
 })
 export class NoUserComponent {
+  constructor() {}
 
-  constructor() { }
-
-  @Output() login = new EventEmitter;
-  @Output() register = new EventEmitter;
-
+  @Output() login = new EventEmitter();
+  @Output() register = new EventEmitter();
 }

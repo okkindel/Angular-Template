@@ -1,4 +1,3 @@
-
 import { AuthGuard } from './auth';
 import { NgModule } from '@angular/core';
 import { HomeModule, HomeComponent } from './home';
@@ -10,19 +9,19 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'home',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'login',
-    component: LoginPageComponent,
+    component: LoginPageComponent
   },
   {
     path: 'register',
-    component: RegisterPageComponent,
+    component: RegisterPageComponent
   },
   {
     path: 'info',
@@ -40,13 +39,13 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(
-    routes, {
+  imports: [
+    RouterModule.forRoot(routes, {
       useHash: true,
-      enableTracing: false,
+      enableTracing: false
     }),
-    HomeModule,
+    HomeModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

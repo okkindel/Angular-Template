@@ -5,7 +5,6 @@ import { MatDrawer } from '@angular/material';
   providedIn: 'root'
 })
 export class SidebarService {
-
   private sidebar: MatDrawer;
 
   public setBar(sidebar: MatDrawer) {
@@ -15,5 +14,4 @@ export class SidebarService {
   public toggle(): void {
     this.sidebar.toggle();
   }
-
 }

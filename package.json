@@ -34,6 +34,7 @@
     "core-js": "^2.5.7",
     "jest-createspyobj": "^1.2.1",
     "ngrx-store-freeze": "^0.2.4",
+    "ramda": "^0.26.1",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.26"
   },

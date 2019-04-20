@@ -1,9 +1,9 @@
-import * as AuthActions from '../../../state/auth/actions/';
+import * as AuthActions from '../../../auth/store/actions/';
 import { SnackbarService } from '../../../shared/services';
-import * as fromAuth from '../../../state/auth/reducers/';
-import { Component } from '@angular/core';
+import * as fromAuth from '../../../auth/store/reducers/';
 import { Store, select } from '@ngrx/store';
 import { ICredentials } from '../../models';
+import { Component } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -13,13 +13,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-
   errorMessage$: Observable<any>;
   isPending$: Observable<boolean>;
 
   constructor(
     private store: Store<fromAuth.IState>,
-    private snackBar: SnackbarService) {
+    private snackBar: SnackbarService
+  ) {
     this.errorMessage$ = store.pipe(
       select(fromAuth.getError),
       filter(err => err !== undefined)
@@ -30,8 +30,10 @@ export class LoginPageComponent {
   login(credentials: ICredentials) {
     this.store.dispatch(new AuthActions.Login(credentials));
 
-    this.errorMessage$.subscribe(
-      response => this.snackBar.showMessage(response.error.status || 'No server connection.')
+    this.errorMessage$.subscribe(response =>
+      this.snackBar.showMessage(
+        response.error.status || 'No server connection.'
+      )
     );
   }
 }

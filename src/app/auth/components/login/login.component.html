@@ -1,27 +1,36 @@
 <form id="login-form" (ngSubmit)="login.emit(credentials)" ngNativeValidate>
-
   <mat-form-field class="full-width">
-    <input 
-    matInput
-    autofocus 
-    required 
-    placeholder="Email" 
-    [(ngModel)]="credentials.email" 
-    name="email">
+    <input
+      [(ngModel)]="credentials.email"
+      placeholder="Email"
+      name="email"
+      autofocus
+      matInput
+      required
+    />
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input 
-    matInput
-    required 
-    [type]="hide ? 'text' : 'password'"
-    placeholder="Password" 
-    [(ngModel)]="credentials.password" 
-    name="password">
-    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <input
+      [type]="hide ? 'text' : 'password'"
+      [(ngModel)]="credentials.password"
+      placeholder="Password"
+      name="password"
+      matInput
+      required
+    />
+    <mat-icon matSuffix (click)="hide = !hide">{{
+      hide ? 'visibility_off' : 'visibility'
+    }}</mat-icon>
   </mat-form-field>
 
-    <button mat-raised-button color="primary" class="big" type="submit" [disabled]="disabled">
+  <button
+    [disabled]="disabled"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    class="big"
+  >
     Login
     <mat-progress-bar *ngIf="disabled" mode="indeterminate"></mat-progress-bar>
   </button>

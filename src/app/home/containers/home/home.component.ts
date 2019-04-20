@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { AppState } from '../../../state/app/app.interface';
+import * as fromAuth from '../../../auth/store/reducers/';
+import { AppState } from '../../../state/app.interface';
 import { Store, select } from '@ngrx/store';
-import * as fromAuth from '../../../state/auth/reducers/';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-home',
@@ -9,11 +9,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
   email$: Observable<string>;
 
-  constructor(
-    private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {
     this.email$ = this.store.pipe(select(fromAuth.getEmail));
   }
 }

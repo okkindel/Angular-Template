@@ -1,14 +1,30 @@
 <mat-drawer-container color="primary" [hasBackdrop]="true" class="container">
-
   <mat-drawer #sidenav class="sidenav">
-    <button mat-menu-item routerLink="/login" routerLinkActive="active" *ngIf="!email" (click)="close()">Login</button>
-    <button mat-menu-item routerLink="/register" routerLinkActive="active" *ngIf="!email" (click)="close()">Register</button>
-    <button mat-menu-item *ngIf="email" (click)="close(); logout()">Logout</button>
+    <button
+      mat-menu-item
+      routerLink="/login"
+      routerLinkActive="active"
+      *ngIf="!email"
+      (click)="close()"
+    >
+      Login
+    </button>
+    <button
+      mat-menu-item
+      routerLink="/register"
+      routerLinkActive="active"
+      *ngIf="!email"
+      (click)="close()"
+    >
+      Register
+    </button>
+    <button mat-menu-item *ngIf="email" (click)="close(); logout()">
+      Logout
+    </button>
     <app-theme-picker></app-theme-picker>
   </mat-drawer>
 
   <mat-drawer-content>
     <ng-content></ng-content>
   </mat-drawer-content>
-
 </mat-drawer-container>

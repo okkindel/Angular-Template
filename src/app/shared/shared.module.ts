@@ -1,22 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LogoComponent, BadRequestComponent, InfoComponent } from './components';
-import { MaterialModule } from '../material';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../material';
+import { NgModule } from '@angular/core';
+import {
+  BadRequestComponent,
+  LogoComponent,
+  InfoComponent
+} from './components';
+
+const components = [InfoComponent, BadRequestComponent, LogoComponent];
 
 @NgModule({
-  declarations: [
-    InfoComponent,
-    BadRequestComponent,
-    LogoComponent,
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterModule
-  ],
-  exports: [
-    LogoComponent, BadRequestComponent, InfoComponent
-  ]
+  imports: [CommonModule, MaterialModule, RouterModule],
+  declarations: [...components],
+  exports: [...components]
 })
-export class SharedModule { }
+export class SharedModule {}
