@@ -1,20 +1,20 @@
 import {
+  complement,
+  converge,
+  isEmpty,
+  compose,
+  values,
+  propEq,
+  concat,
+  filter,
+  reduce,
+  isNil,
+  prop,
   all,
   map,
   any,
-  compose,
-  concat,
-  converge,
-  propEq,
-  prop,
   is,
-  isEmpty,
-  isNil,
-  or,
-  reduce,
-  complement,
-  filter,
-  values
+  or
 } from 'ramda';
 
 export const isNilOrEmpty = converge(or, [isNil, isEmpty]);

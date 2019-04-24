@@ -1,16 +1,6 @@
 import { Params, RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 
-const typeCache: { [label: string]: boolean } = {};
-
-export function createActionType<T>(label: T | ''): T {
-  if (typeCache[<string>label]) {
-    throw new Error(`Action type "${label}" is not unique"`);
-  }
-  typeCache[<string>label] = true;
-  return <T>label;
-}
-
 export interface IRouterStateUrl {
   queryParams: Params;
   params: Params;

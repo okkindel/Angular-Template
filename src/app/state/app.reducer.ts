@@ -1,6 +1,6 @@
-import { IRouterStateUrl } from '../shared/utils/serializer';
 import * as fromRouter from '@ngrx/router-store';
 import { ActionReducerMap } from '@ngrx/store';
+import { IRouterStateUrl } from './serializer';
 
 export interface IState {
   router: fromRouter.RouterReducerState<IRouterStateUrl>;

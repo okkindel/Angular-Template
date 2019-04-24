@@ -1,12 +1,10 @@
-import { SnackbarService } from './snakbar.service';
+import * as fromErrorState from '../store/reducers/notyfication.reducer';
+import { HttpErrorAction } from '../store/actions/notyfication.action';
 import { HttpErrorResponse, HttpEvent } from '@angular/common/http';
-import * as fromErrorState from '../store/reducers';
-import { HttpErrorAction } from '../store/actions';
 import { Observable, throwError } from 'rxjs';
 import { switchcase } from '../utils/utils';
 import { Injectable } from '@angular/core';
 import { IErrorResponse } from '../models';
-import autobind from 'autobind-decorator';
 import { Store } from '@ngrx/store';
 
 @Injectable({
@@ -15,7 +13,6 @@ import { Store } from '@ngrx/store';
 export class ErrorHandlingService {
   constructor(
     private storeError: Store<fromErrorState.IErrorState>,
-    private snackBar: SnackbarService
   ) {}
 
   handleError(error: HttpErrorResponse): Observable<HttpEvent<any>> {
@@ -47,10 +44,5 @@ export class ErrorHandlingService {
       500: 'ERROR.ERR_500',
       502: 'ERROR.ERR_502'
     })('ERROR.ERR_DEFAULT')(message);
-  }
-
-  @autobind
-  showMessage(message) {
-    this.snackBar.showMessage(message);
   }
 }

@@ -1,13 +1,13 @@
-import { CustomSerializer } from '../shared/utils/serializer';
 import { environment } from '../../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CustomSerializer } from './serializer';
 import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
 import {
-  RouterStateSerializer,
-  StoreRouterConnectingModule
+  StoreRouterConnectingModule,
+  RouterStateSerializer
 } from '@ngrx/router-store';
 import {
   ModuleWithProviders,
@@ -22,7 +22,7 @@ import {
     EffectsModule.forRoot([]),
     StoreModule.forRoot(reducers),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
     {
