@@ -1,14 +1,13 @@
 import { Action } from '@ngrx/store';
 
 export enum ThemesActions {
-    ChangeTheme = '[Themes] Change Theme'
+  ChangeTheme = '[Themes] Change Theme'
 }
 
-export type ThemesActionsUnion
-    = ChangeTheme;
+export type ThemesActionsUnion = ChangeTheme;
 
 export class ChangeTheme implements Action {
-    readonly type = ThemesActions.ChangeTheme;
+  readonly type = ThemesActions.ChangeTheme;
 
-    constructor(public payload?: any) { }
+  constructor(public payload?: any) {}
 }

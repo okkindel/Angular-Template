@@ -1,5 +1,4 @@
 <div class="container">
-
   <mat-card class="form centered">
     <mat-card class="header">
       <p style="line-height: 60px;">
@@ -7,11 +6,11 @@
       </p>
     </mat-card>
     <div class="content">
-      <app-register 
-        (register)="register($event)" 
-        [disabled]="isPending$ | async">
+      <app-register
+        (register)="register($event)"
+        [disabled]="isPending$ | async"
+      >
       </app-register>
     </div>
   </mat-card>
-
 </div>

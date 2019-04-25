@@ -10,8 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-
-  constructor(private store: Store<fromAuth.IState>) { }
+  constructor(private store: Store<fromAuth.IState>) {}
 
   canActivate(): Observable<boolean> {
     return this.store.pipe(
@@ -29,5 +28,5 @@ export class AuthGuard implements CanActivate {
       this.store.dispatch(new AuthActions.LoginRedirect());
     }, 0);
     return false;
-  }
+  };
 }

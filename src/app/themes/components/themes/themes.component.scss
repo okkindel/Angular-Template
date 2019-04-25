@@ -1,13 +1,13 @@
 .mobile {
-    display: none;
+  display: none;
 }
 
 @media screen and(max-width: 760px) {
-    .mobile {
-        display: block;
-    }
-    
-    .desktop {
-        display: none;
-    }
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
 }

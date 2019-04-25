@@ -22,5 +22,5 @@ export class RegisterComponent {
   validate = () =>
     this.validate_password() &&
     !isNil(this.credentials.email) &&
-    !isNil(this.credentials.password)
+    !isNil(this.credentials.password);
 }

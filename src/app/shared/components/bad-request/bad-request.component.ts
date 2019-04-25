@@ -5,9 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './bad-request.component.html',
   styleUrls: ['./bad-request.component.scss']
 })
-
 export class BadRequestComponent {
-
-  constructor() { }
-
+  constructor() {}
 }

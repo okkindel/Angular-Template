@@ -1,5 +1,5 @@
 <app-user-settings
-  *ngIf="(email$ | async)"
+  *ngIf="email$ | async"
   [email]="email$ | async"
   (logout)="logout()"
 >

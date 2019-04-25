@@ -1,3 +1,3 @@
 export interface AppState {
-    router: '';
+  router: '';
 }

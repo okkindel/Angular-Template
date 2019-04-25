@@ -1,5 +1,4 @@
 <div class="container">
-
   <mat-card class="form centered">
     <mat-card class="header">
       <p style="line-height: 60px;">
@@ -7,11 +6,8 @@
       </p>
     </mat-card>
     <div class="content">
-      <app-login 
-        (login)="login($event)" 
-        [disabled]="isPending$ | async">
+      <app-login (login)="login($event)" [disabled]="isPending$ | async">
       </app-login>
     </div>
   </mat-card>
-
 </div>
