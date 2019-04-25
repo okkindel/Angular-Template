@@ -8,12 +8,7 @@ export enum NotyficationActionTypes {
 
 export class NotyficationOpenAction implements Action {
   readonly type = NotyficationActionTypes.NOTYFICATION_OPEN;
-  constructor(
-    public payload: {
-      message: string;
-      config?: MatSnackBarConfig;
-    }
-  ) {}
+  constructor(public payload: string) {}
 }
 
 export class NotyficationCloseAction implements Action {

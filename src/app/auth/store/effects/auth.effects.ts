@@ -1,3 +1,4 @@
+import { SnackbarService } from './../../../shared/services/snakbar.service';
 import * as fromNotyficatons from '../../../shared/store/reducers';
 import { NotyficationOpenAction } from 'src/app/shared/store/actions';
 import { AuthService } from '../../../auth/services/auth.service';
@@ -36,10 +37,10 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.pipe(
     ofType(AuthActionTypes.LoginSuccess),
-    tap((action: any) => {
+    tap((action: LoginSuccess) => {
       localStorage.setItem('token', action.payload.token);
       this.store.dispatch(
-        new NotyficationOpenAction({ message: 'You were successfully logged in.' })
+        new NotyficationOpenAction('You were successfully logged in.')
       );
     })
   );
@@ -47,7 +48,8 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   loginRedirect$ = this.actions$.pipe(
     ofType(AuthActionTypes.LoginRedirect),
-    tap(_ => this.router.navigate(['login']))
+    tap(() => this.snackBar.showMessage('Access denied, redirecting...')),
+    tap(() => this.router.navigate(['login']))
   );
 
   @Effect({ dispatch: false })
@@ -56,7 +58,7 @@ export class AuthEffects {
     tap(() => {
       localStorage.removeItem('token');
       this.store.dispatch(
-        new NotyficationOpenAction({ message: 'You were successfully logged out.' })
+        new NotyficationOpenAction('You were successfully logged out.')
       );
     })
   );
@@ -65,6 +67,7 @@ export class AuthEffects {
     private router: Router,
     private actions$: Actions,
     private authService: AuthService,
+    private snackBar: SnackbarService,
     private store: Store<fromNotyficatons.ISnackBarState>
   ) {}
 }

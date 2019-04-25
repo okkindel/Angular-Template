@@ -20,8 +20,7 @@ const components = [NotyficationComponent, BadRequestComponent, LogoComponent];
   imports: [
     StoreModule.forFeature('notyfication-state', notyficationReducer),
     StoreModule.forFeature('error-state', errorHandlingReducer),
-    EffectsModule.forFeature([ErrorHandlingEffects]),
-    EffectsModule.forFeature([NotyficationsEffects]),
+    EffectsModule.forFeature([ErrorHandlingEffects, NotyficationsEffects]),
     MaterialModule,
     CommonModule,
     RouterModule

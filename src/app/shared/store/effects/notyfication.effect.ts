@@ -14,16 +14,10 @@ export class NotyficationsEffects {
 
   @Effect()
   openNotyfication$ = this.actions$.pipe(
-    tap(console.log),
     ofType<NotyficationOpenAction>(NotyficationActionTypes.NOTYFICATION_OPEN),
-    tap(action => {
-      console.log(action);
+    tap(() => {
       this.router.navigate(['notyfication']);
     }),
-    // map((action: SnackbarOpenAction) => action.payload),
-    // tap(payload =>
-    //   this.matSnackBar.open(payload.message, payload.action, payload.config)
-    // ),
     delay(3000),
     map(() => new NotyficationCloseAction())
   );
@@ -31,6 +25,10 @@ export class NotyficationsEffects {
   @Effect({ dispatch: false })
   closeNotyfication$ = this.actions$.pipe(
     ofType(NotyficationActionTypes.NOTYFICATION_CLOSE),
-    tap(() => this.router.navigate(['home']))
+    tap(() => {
+      if (this.router.url === '/notyfication') {
+        this.router.navigate(['home']);
+      }
+    })
   );
 }

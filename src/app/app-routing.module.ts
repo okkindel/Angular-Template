@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { HomeModule, HomeComponent } from './home';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
-import { NotyficationComponent, BadRequestComponent } from './shared/components';
+import {
+  NotyficationComponent,
+  BadRequestComponent
+} from './shared/components';
 
 export const routes: Routes = [
   {
@@ -21,12 +24,12 @@ export const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterPageComponent
+    component: RegisterPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'notyfication',
-    component: NotyficationComponent,
-    canActivate: [AuthGuard]
+    component: NotyficationComponent
   },
   {
     path: '404',

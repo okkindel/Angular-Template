@@ -17,7 +17,7 @@ export function notyficationReducer(
 ) {
   switch (action.type) {
     case NotyficationActionTypes.NOTYFICATION_OPEN: {
-      state.message = action.payload.message;
+      state.message = action.payload;
       state.show = true;
       return state;
     }

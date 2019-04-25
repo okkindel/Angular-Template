@@ -26,9 +26,7 @@ export class RegisterPageComponent {
     this.service.register(credentials.email, credentials.password).subscribe(
       () => {
         this.store.dispatch(
-          new NotyficationOpenAction({
-            message: 'You were successfully registered.'
-          })
+          new NotyficationOpenAction('You were successfully registered.')
         );
       },
       error => {
