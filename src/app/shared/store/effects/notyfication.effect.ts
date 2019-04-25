@@ -12,12 +12,12 @@ import {
 @Injectable()
 export class NotificationsEffects {
   constructor(
-    private actions: Actions,
+    private actions$: Actions,
     private snackbarState: Store<fromSnackBar.ISnackBarState>
   ) {}
 
   @Effect({ dispatch: false })
-  showNotification = this.actions.pipe(
+  showNotification$ = this.actions$.pipe(
     ofType<HttpErrorAction>(ErrorActionTypes.HANDLE_HTTP),
     map(action =>
       this.snackbarState.dispatch(

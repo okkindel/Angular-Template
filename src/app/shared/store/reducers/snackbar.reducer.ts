@@ -1,6 +1,6 @@
 import {
   SnackbarActionTypes,
-  SnackbarAction
+  SnackbarActionUnion
 } from '../actions/snackbar.action';
 
 export interface ISnackBarState {
@@ -13,7 +13,7 @@ const initialState: ISnackBarState = {
 
 export function snackBarReducer(
   state: ISnackBarState = initialState,
-  action: SnackbarAction
+  action: SnackbarActionUnion
 ) {
   switch (action.type) {
     case SnackbarActionTypes.SNACKBAR_CLOSE: {

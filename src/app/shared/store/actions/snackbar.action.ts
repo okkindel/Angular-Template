@@ -22,4 +22,4 @@ export class SnackbarCloseAction implements Action {
   readonly type = SnackbarActionTypes.SNACKBAR_CLOSE;
 }
 
-export type SnackbarAction = SnackbarOpenAction | SnackbarCloseAction;
+export type SnackbarActionUnion = SnackbarOpenAction | SnackbarCloseAction;

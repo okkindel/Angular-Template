@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 export class InfoService {
   constructor(private router: Router) {}
 
-  message: String = '';
+  message = '';
 
-  showInfo(message: String) {
+  showInfo(message: string) {
     this.message = message;
     this.router.navigate(['info']);
   }
