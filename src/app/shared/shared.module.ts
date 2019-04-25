@@ -1,5 +1,5 @@
-import { NotificationsEffects, SnackbarEffects } from './store/effects';
-import { errorReducer, notyficationReducer } from './store/reducers';
+import { ErrorHandlingEffects, NotyficationsEffects } from './store/effects';
+import { errorHandlingReducer, notyficationReducer } from './store/reducers';
 import { HttpErrorInterceptor } from './utils/error.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -11,17 +11,17 @@ import { NgModule } from '@angular/core';
 import {
   BadRequestComponent,
   LogoComponent,
-  InfoComponent
+  NotyficationComponent
 } from './components';
 
-const components = [InfoComponent, BadRequestComponent, LogoComponent];
+const components = [NotyficationComponent, BadRequestComponent, LogoComponent];
 
 @NgModule({
   imports: [
     StoreModule.forFeature('notyfication-state', notyficationReducer),
-    StoreModule.forFeature('error-state', errorReducer),
-    EffectsModule.forFeature([NotificationsEffects]),
-    EffectsModule.forRoot([SnackbarEffects]),
+    StoreModule.forFeature('error-state', errorHandlingReducer),
+    EffectsModule.forFeature([ErrorHandlingEffects]),
+    EffectsModule.forFeature([NotyficationsEffects]),
     MaterialModule,
     CommonModule,
     RouterModule

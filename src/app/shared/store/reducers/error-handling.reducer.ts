@@ -7,7 +7,7 @@ export interface IErrorState {
 }
 export const initialState: IErrorState = { errors: [] };
 
-export function errorReducer(
+export function errorHandlingReducer(
   state: IErrorState = initialState,
   action: ErrorActionsUnion
 ): IErrorState {

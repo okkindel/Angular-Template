@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
 @Component({
-  selector: 'app-info',
-  templateUrl: './info.component.html',
-  styleUrls: ['./info.component.scss']
+  selector: 'app-notyfication',
+  templateUrl: './notyfication.component.html',
+  styleUrls: ['./notyfication.component.scss']
 })
-export class InfoComponent implements OnInit {
+export class NotyficationComponent implements OnInit {
   message: string;
 
   constructor(private store: Store<fromNotyfications.ISnackBarState>) {}

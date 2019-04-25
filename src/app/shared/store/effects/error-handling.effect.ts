@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
 
 @Injectable()
-export class NotificationsEffects {
+export class ErrorHandlingEffects {
   constructor(private actions$: Actions, private snackBar: SnackbarService) {}
 
   @Effect({ dispatch: false })
-  showNotification$ = this.actions$.pipe(
+  handleError$ = this.actions$.pipe(
     ofType<HttpErrorAction>(ErrorActionTypes.HANDLE_HTTP),
     map(action => action.payload.userInfo),
     tap(payload => this.snackBar.showMessage(payload))

@@ -9,15 +9,16 @@ import {
 } from '../actions';
 
 @Injectable()
-export class SnackbarEffects {
+export class NotyficationsEffects {
   constructor(private actions$: Actions, private router: Router) {}
 
   @Effect()
-  showSnackbar$ = this.actions$.pipe(
+  openNotyfication$ = this.actions$.pipe(
+    tap(console.log),
     ofType<NotyficationOpenAction>(NotyficationActionTypes.NOTYFICATION_OPEN),
     tap(action => {
       console.log(action);
-      this.router.navigate(['info']);
+      this.router.navigate(['notyfication']);
     }),
     // map((action: SnackbarOpenAction) => action.payload),
     // tap(payload =>
@@ -28,7 +29,7 @@ export class SnackbarEffects {
   );
 
   @Effect({ dispatch: false })
-  closeSnackbar$ = this.actions$.pipe(
+  closeNotyfication$ = this.actions$.pipe(
     ofType(NotyficationActionTypes.NOTYFICATION_CLOSE),
     tap(() => this.router.navigate(['home']))
   );
