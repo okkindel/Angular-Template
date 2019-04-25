@@ -1,0 +1,24 @@
+@import '../utils/custom';
+
+$purple-primary: mat-palette($mat-purple);
+$purple-accent: mat-palette($mat-pink, A100, A400, A800);
+$purple-warn: mat-palette($mat-red);
+$purple-background: mat-palette($mat-purple, 900);
+$purple-foreground: mat-palette($mat-purple, 900);
+
+$purple-theme: custom-theme(
+  $purple-primary,
+  $purple-accent,
+  $purple-warn,
+  $purple-foreground,
+  $purple-background
+);
+
+.purple-theme-colors {
+  .primary-color {
+    background-color: mat-color($purple-primary);
+  }
+  .accent-color {
+    background-color: mat-color($purple-accent);
+  }
+}

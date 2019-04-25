@@ -10,7 +10,7 @@ import { Store, select } from '@ngrx/store';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @HostBinding('class') componentCssClass;
+  @HostBinding('class') styleClass;
 
   constructor(
     private store: Store<fromThemes.IState>,
@@ -19,16 +19,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const state = this.store.pipe(select(fromThemes.getTheme));
-    state.subscribe(data => this.changeColors(data));
+    state.subscribe(data => this.selectTheme(data));
   }
 
-  changeColors(theme) {
+  selectTheme(theme) {
     Object.keys(Themes).forEach(item => {
       this.overlayContainer
         .getContainerElement()
         .classList.remove(Themes[item]);
     });
     this.overlayContainer.getContainerElement().classList.add(theme);
-    this.componentCssClass = theme;
+    this.styleClass = theme;
   }
 }

@@ -1,0 +1,13 @@
+$dark-primary: mat-palette($mat-teal);
+$dark-accent: mat-palette($mat-teal, A400, A100, A700);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+.dark-theme-colors {
+  .primary-color {
+    background-color: mat-color($dark-primary);
+  }
+  .accent-color {
+    background-color: mat-color($dark-accent);
+  }
+}

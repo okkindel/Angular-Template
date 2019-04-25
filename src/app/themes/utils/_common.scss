@@ -1,0 +1,26 @@
+@mixin common-themes($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: map-get($background, unselected-chip);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: mat-color($accent);
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px mat-color($background, 400) inset;
+    box-shadow: 0 0 0 30px mat-color($background, 400) inset;
+    -webkit-text-fill-color: darkgray;
+  }
+
+  a {
+    color: mat-color($accent);
+  }
+}

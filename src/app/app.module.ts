@@ -9,6 +9,7 @@ import { MaterialModule } from './material';
 import { NgModule } from '@angular/core';
 import { ThemesModule } from './themes';
 import { AuthModule } from './auth';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { AuthModule } from './auth';
     ThemesModule,
     StateModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    NoopAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

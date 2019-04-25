@@ -1,0 +1,15 @@
+$light-primary: mat-palette($mat-grey);
+$light-accent: mat-palette($mat-grey, A400, A100, A700);
+$light-warn: mat-palette($mat-red);
+$light-background: map_get($mat-grey, 50);
+$light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
+$light-theme: merge-background($light-theme, $light-background);
+
+.light-theme-colors {
+  .primary-color {
+    background-color: mat-color($light-primary);
+  }
+  .accent-color {
+    background-color: mat-color($light-accent);
+  }
+}

@@ -1,0 +1,16 @@
+@import './templates/purple-theme';
+@import './templates/light-theme';
+@import './templates/dark-theme';
+@import './index';
+
+.light-theme {
+  @include components-theme($light-theme);
+}
+
+.dark-theme {
+  @include components-theme($dark-theme);
+}
+
+.purple-theme {
+  @include components-theme($purple-theme);
+}

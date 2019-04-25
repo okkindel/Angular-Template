@@ -1,0 +1,98 @@
+// add background to theme
+@function merge-background($theme, $bgColor) {
+    $background: map-get($light-theme, background);
+    $background: map_merge($background, (background: $bgColor));
+    @return map_merge($light-theme, (background: $background));
+}
+
+// create custom material theme
+/// function is based on @see mat-light-theme or @see mat-dark-theme <node_modules/@angular/material/themes.scss:1300>
+@function custom-theme($primary, $accent, $warn, $foreground, $background) {
+    @return (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+      foreground: custom-foreground($mat-dark-theme-background),
+      background: custom-background($mat-dark-theme-background),
+      is-dark: true
+    );
+  }
+  
+  // create custom background map for themes
+  // $mat-background - should be one of standard material background map
+  /// @see $mat-light-theme-background or @see $mat-dark-theme-background  <node_modules/@angular/material/themes.scss:1167-1200>
+  @function custom-background(
+    $mat-background,
+    $status-bar: null,
+    $app-bar: null,
+    $background: null,
+    $hover: null,
+    $card: null,
+    $dialog: null,
+    $disabled-button: null,
+    $raised-button: null,
+    $focused-button: null,
+    $selected-button: null,
+    $selected-disabled-button: null,
+    $disabled-button-toggle: null,
+    $unselected-chip: null,
+    $disabled-list-option: null
+  ) {
+    @return (
+    status-bar:               if($status-bar == null, map-get($mat-background, status-bar), $status-bar),
+    app-bar:                  if($app-bar == null, map-get($mat-background, app-bar), $app-bar),
+    background:               if($background == null, map-get($mat-background, background), $background),
+    hover:                    if($hover == null, map-get($mat-background, hover), $hover),
+    card:                     if($card == null, map-get($mat-background, card), $card),
+    dialog:                   if($dialog == null, map-get($mat-background, dialog), $dialog),
+    disabled-button:          if($disabled-button == null, map-get($mat-background, disabled-button), $disabled-button),
+    raised-button:            if($raised-button == null, map-get($mat-background, raised-button), $raised-button),
+    focused-button:           if($focused-button == null, map-get($mat-background, focused-button), $focused-button),
+    selected-button:          if($selected-button == null, map-get($mat-background, selected-button), $selected-button),
+    selected-disabled-button: if($selected-disabled-button == null, map-get($mat-background, selected-disabled-button), $selected-disabled-button),
+    disabled-button-toggle:   if($disabled-button-toggle == null, map-get($mat-background, disabled-button-toggle), $disabled-button-toggle),
+    unselected-chip:          if($unselected-chip == null, map-get($mat-background, unselected-chip), $unselected-chip),
+    disabled-list-option:     if($disabled-list-option == null, map-get($mat-background, disabled-list-option), $disabled-list-option)
+    )
+  };
+  
+  // create custom foreground map for themes
+  // $mat-foreground - should be one of standard material background map
+  /// @see $mat-light-theme-foreground or @see $mat-dark-theme-foreground  <node_modules/@angular/material/themes.scss:1203-1238>
+  @function custom-foreground(
+    $mat-foreground,
+    $base: null,
+    $divider: null,
+    $dividers: null,
+    $disabled: null,
+    $disabled-button: null,
+    $disabled-text: null,
+    $elevation: null,
+    $hint-text: null,
+    $secondary-text: null,
+    $icon: null,
+    $icons: null,
+    $text: null,
+    $slider-min: null,
+    $slider-off: null,
+    $slider-off-active: null
+  ) {
+    @return (
+      base:                 if($base == null, map-get($mat-foreground, base), $base),
+      divider:              if($divider == null, map-get($mat-foreground, divider), $divider),
+      dividers:             if($dividers == null, map-get($mat-foreground, dividers), $dividers),
+      disabled:             if($disabled == null, map-get($mat-foreground, disabled), $disabled),
+      disabled-button:      if($disabled-button == null, map-get($mat-foreground, disabled-button), $disabled-button),
+      disabled-text:        if($disabled-text == null, map-get($mat-foreground, disabled-text), $disabled-text),
+      elevation:            if($elevation == null, map-get($mat-foreground, elevation), $elevation),
+      hint-text:            if($hint-text == null, map-get($mat-foreground, hint-text), $hint-text),
+      secondary-text:       if($secondary-text == null, map-get($mat-foreground, secondary-text), $secondary-text),
+      icon:                 if($icon == null, map-get($mat-foreground, icon), $icon),
+      icons:                if($icons == null, map-get($mat-foreground, icons), $icons),
+      text:                 if($text == null, map-get($mat-foreground, text), $text),
+      slider-min:           if($slider-min == null, map-get($mat-foreground, slider-min), $slider-min),
+      slider-off:           if($slider-off == null, map-get($mat-foreground, slider-off), $slider-off),
+      slider-off-active:    if($slider-off-active == null, map-get($mat-foreground, slider-off-active), $slider-off-active)
+    )
+  };
+  

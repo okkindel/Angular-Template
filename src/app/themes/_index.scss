@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@import './utils/common';
+@import './utils/grid';
+
+@mixin components-theme($theme) {
+  @include angular-material-theme($theme);
+  @include common-themes($theme);
+  @include grid($theme);
+}
