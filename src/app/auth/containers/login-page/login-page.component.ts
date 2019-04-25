@@ -30,11 +30,10 @@ export class LoginPageComponent {
   login(credentials: ICredentials) {
     this.store.dispatch(new AuthActions.Login(credentials));
 
-    // this.errorMessage$.subscribe(response =>
-      // this.snackBar.showMessage(
-      //   response.error.status || 'No server connection.'
-      // )
-      // null
-    // );
+    this.errorMessage$.subscribe(response =>
+      this.snackBar.showMessage(
+        response.error.status || 'No server connection.'
+      )
+    );
   }
 }

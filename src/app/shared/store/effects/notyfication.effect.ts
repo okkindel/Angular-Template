@@ -1,31 +1,35 @@
-import { Effect, Actions, ofType } from '@ngrx/effects';
-import * as fromSnackBar from '../reducers';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { delay, map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 import {
-  SnackbarOpenAction,
-  ErrorActionTypes,
-  HttpErrorAction
+  NotyficationActionTypes,
+  NotyficationCloseAction,
+  NotyficationOpenAction
 } from '../actions';
 
 @Injectable()
-export class NotificationsEffects {
-  constructor(
-    private actions$: Actions,
-    private snackbarState: Store<fromSnackBar.ISnackBarState>
-  ) {}
+export class SnackbarEffects {
+  constructor(private actions$: Actions, private router: Router) {}
+
+  @Effect()
+  showSnackbar$ = this.actions$.pipe(
+    ofType<NotyficationOpenAction>(NotyficationActionTypes.NOTYFICATION_OPEN),
+    tap(action => {
+      console.log(action);
+      this.router.navigate(['info']);
+    }),
+    // map((action: SnackbarOpenAction) => action.payload),
+    // tap(payload =>
+    //   this.matSnackBar.open(payload.message, payload.action, payload.config)
+    // ),
+    delay(3000),
+    map(() => new NotyficationCloseAction())
+  );
 
   @Effect({ dispatch: false })
-  showNotification$ = this.actions$.pipe(
-    ofType<HttpErrorAction>(ErrorActionTypes.HANDLE_HTTP),
-    map(action =>
-      this.snackbarState.dispatch(
-        new SnackbarOpenAction({
-          message: action.payload.userInfo,
-          action: 'Success'
-        })
-      )
-    )
+  closeSnackbar$ = this.actions$.pipe(
+    ofType(NotyficationActionTypes.NOTYFICATION_CLOSE),
+    tap(() => this.router.navigate(['home']))
   );
 }

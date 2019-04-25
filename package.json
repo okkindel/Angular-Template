@@ -31,7 +31,6 @@
     "@ngrx/store": "^6.1.0",
     "@ngrx/store-devtools": "^6.1.0",
     "@types/jest": "^23.3.10",
-    "autobind-decorator": "^2.4.0",
     "core-js": "^2.5.7",
     "jest-createspyobj": "^1.2.1",
     "ngrx-store-freeze": "^0.2.4",

@@ -1,26 +1,35 @@
-import { ErrorActionsUnion, ErrorActionTypes } from '../actions';
+import { NotyficationActionTypes, NotyficationActionUnion } from '../actions';
 import { createFeatureSelector } from '@ngrx/store';
-import { IErrorResponse } from '../../models';
 
-export interface IErrorState {
-  errors: IErrorResponse[];
+export interface ISnackBarState {
+  show: boolean;
+  message: string;
 }
 
-export const initialState: IErrorState = { errors: [] };
+const initialState: ISnackBarState = {
+  show: false,
+  message: ''
+};
 
-export function errorReducer(
-  state: IErrorState = initialState,
-  action: ErrorActionsUnion
-): IErrorState {
+export function notyficationReducer(
+  state: ISnackBarState = initialState,
+  action: NotyficationActionUnion
+) {
   switch (action.type) {
-    case ErrorActionTypes.HANDLE_HTTP: {
-      state.errors.push(action.payload);
+    case NotyficationActionTypes.NOTYFICATION_OPEN: {
+      state.message = action.payload.message;
+      state.show = true;
       return state;
     }
-    default: {
+    case NotyficationActionTypes.NOTYFICATION_CLOSE: {
+      state.show = false;
       return state;
     }
+    default:
+      return state;
   }
 }
 
-export const getErrorsState = createFeatureSelector<IErrorState>('error-state');
+export const getNotyficationMessage = createFeatureSelector<ISnackBarState>(
+  'notyfication-state'
+);

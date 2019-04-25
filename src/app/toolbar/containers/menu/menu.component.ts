@@ -1,4 +1,3 @@
-import { InfoService } from 'src/app/shared/services/info.service';
 import * as AuthActions from '../../../auth/store/actions/';
 import * as fromAuth from '../../../auth/store/reducers/';
 import { AppState } from '../../../state/app.interface';
@@ -15,17 +14,12 @@ import { Observable } from 'rxjs';
 export class MenuComponent {
   email$: Observable<string>;
 
-  constructor(
-    private store: Store<AppState>,
-    private router: Router,
-    private infoService: InfoService
-  ) {
+  constructor(private store: Store<AppState>, private router: Router) {
     this.email$ = this.store.pipe(select(fromAuth.getEmail));
   }
 
   public logout() {
     this.store.dispatch(new AuthActions.Logout());
-    this.infoService.showInfo('You were successfully logged out.');
   }
 
   navigateToLogin() {

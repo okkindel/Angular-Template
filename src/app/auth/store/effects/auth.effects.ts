@@ -1,11 +1,13 @@
+import * as fromNotyficatons from '../../../shared/store/reducers';
+import { NotyficationOpenAction } from 'src/app/shared/store/actions';
 import { AuthService } from '../../../auth/services/auth.service';
 import { map, exhaustMap, catchError, tap } from 'rxjs/operators';
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { InfoService } from 'src/app/shared/services';
 import { IUser } from '../../../auth/models';
 import { Injectable } from '@angular/core';
 import { of as observableOf } from 'rxjs';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import {
   AuthActionTypes,
   LoginFailure,
@@ -36,8 +38,9 @@ export class AuthEffects {
     ofType(AuthActionTypes.LoginSuccess),
     tap((action: any) => {
       localStorage.setItem('token', action.payload.token);
-      this.router.navigate(['home']);
-      this.infoService.showInfo('You were successfully logged in.');
+      this.store.dispatch(
+        new NotyficationOpenAction({ message: 'You were successfully logged in.' })
+      );
     })
   );
 
@@ -50,13 +53,18 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   logout$ = this.actions$.pipe(
     ofType(AuthActionTypes.Logout),
-    tap(_ => this.router.navigate(['home']))
+    tap(() => {
+      localStorage.removeItem('token');
+      this.store.dispatch(
+        new NotyficationOpenAction({ message: 'You were successfully logged out.' })
+      );
+    })
   );
 
   constructor(
     private router: Router,
     private actions$: Actions,
-    private infoService: InfoService,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: Store<fromNotyficatons.ISnackBarState>
   ) {}
 }

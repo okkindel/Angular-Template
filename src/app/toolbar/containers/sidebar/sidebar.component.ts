@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import * as AuthActions from '../../../auth/store/actions';
 import { AppState } from '../../../state/app.interface';
 import * as fromAuth from '../../../auth/store/reducers';
-import { InfoService } from '../../../shared/services';
 import { SidebarService } from '../../services';
 import { MatDrawer } from '@angular/material';
 import { select, Store } from '@ngrx/store';
@@ -23,11 +22,7 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  constructor(
-    private service: SidebarService,
-    private store: Store<AppState>,
-    private infoService: InfoService
-  ) {
+  constructor(private service: SidebarService, private store: Store<AppState>) {
     this.store
       .pipe(select(fromAuth.getEmail))
       .subscribe(res => (this.email = res));
@@ -35,7 +30,6 @@ export class SidebarComponent implements OnInit {
 
   public logout() {
     this.store.dispatch(new AuthActions.Logout());
-    this.infoService.showInfo('You were successfully logged out.');
   }
 
   close() {

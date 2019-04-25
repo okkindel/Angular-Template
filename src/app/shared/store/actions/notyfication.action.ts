@@ -1,13 +1,25 @@
-import { IErrorResponse } from '../../models';
+import { MatSnackBarConfig } from '@angular/material';
 import { Action } from '@ngrx/store';
 
-export enum ErrorActionTypes {
-  HANDLE_HTTP = '[ERROR]: handled http error response'
+export enum NotyficationActionTypes {
+  NOTYFICATION_OPEN = '[NOTYFICATION]: open notyfication',
+  NOTYFICATION_CLOSE = '[NOTYFICATION]: close notyfication'
 }
 
-export class HttpErrorAction implements Action {
-  readonly type = ErrorActionTypes.HANDLE_HTTP;
-  constructor(public payload?: IErrorResponse) {}
+export class NotyficationOpenAction implements Action {
+  readonly type = NotyficationActionTypes.NOTYFICATION_OPEN;
+  constructor(
+    public payload: {
+      message: string;
+      config?: MatSnackBarConfig;
+    }
+  ) {}
 }
 
-export type ErrorActionsUnion = HttpErrorAction;
+export class NotyficationCloseAction implements Action {
+  readonly type = NotyficationActionTypes.NOTYFICATION_CLOSE;
+}
+
+export type NotyficationActionUnion =
+  | NotyficationOpenAction
+  | NotyficationCloseAction;
